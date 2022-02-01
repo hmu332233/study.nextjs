@@ -7,7 +7,6 @@ import styles from '../styles/Home.module.css'
 function Home() {
   return (
     <div>
-      <NavBar />
       <h1>Home</h1>
     </div>
   );

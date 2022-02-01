@@ -11,6 +11,14 @@
   - Server-side Rendering -> request마다 랜더링
 - (잠깐 상식?) Hydrate: 미리 랜더된 HTML 코드와 React인 JS코드를 서로 매칭 시키는 과정
 
+**App Component, App Page**
+- `_app`
+  - 페이지를 초기화하는 컴포넌트, 모든 페이지에 공통으로 적용할 속성을 관리하는 용도
+    - 공통 레이아웃 적용
+    - 페이지 이동 시 상태 유지
+    - componentDidCatch를 이용한 커스텀 에러 정의
+    - 페이지에 추가 데이터 삽입
+    - 글로벌 CSS 추가
 
 
 ### Getting Started
