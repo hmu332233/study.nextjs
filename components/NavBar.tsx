@@ -2,32 +2,46 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import classNames from 'classnames';
+import Image from 'next/image';
 
 function NavBar() {
   const router = useRouter();
   return (
-    <nav className="nav">
-      {/* Link는 페이지 이동만을 위해 존재. style이나 className을 추가하고 싶으면 자식으로 넣어주기 */}
-      {/* 아래처럼해도 a 태그를 인식해서 next가 하나만 그려줌 */}
-      <Link href="/"> 
-        <a className={classNames('link', (router.pathname === '/') && 'active')}>Home</a>
-      </Link>
-      <Link href="/about">
-        <a className={classNames('link', (router.pathname === '/about') && 'active')}>About</a>
-      </Link>
-
-      {/* styles jsx 기능을 이용해서 스타일링도 가능 */}
-      {/* 적용 범위가 해당 컴포넌트 내부에만 한정됨 <- 해싱되기 때문에 다른 파일에서는 같은 class나 tag를 선언하더라도 겹치지 않음 */}
+    <nav>
+      <Image src="/vercel.svg" alt="logo" width={100} height={50} />
+      <div>
+        <Link href="/">
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+        </Link>
+        <Link href="/about">
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        </Link>
+      </div>
       <style jsx>{`
         nav {
-          background-color: tomato;
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         }
-        .link {
-          color: white;
-          text-decoration: none;
+        img {
+          max-width: 100px;
+          margin-bottom: 5px;
+        }
+        nav a {
+          font-weight: 600;
+          font-size: 18px;
         }
         .active {
-          color: blue;
+          color: tomato;
+        }
+        nav div {
+          display: flex;
+          gap: 10px;
         }
       `}</style>
     </nav>
