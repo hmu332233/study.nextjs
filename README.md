@@ -26,6 +26,13 @@
 **유용한 컴포넌트**
 - `next/head` head tag를 주입하는데 사용, meta tag들 관리하는데 사용 가능
 
+**redirection, rewrite**
+- `next.config.json`에서 설정 가능
+- [문서 - rewrites](https://nextjs.org/docs/api-reference/next.config.js/rewrites), [문서 - redirects](https://nextjs.org/docs/api-reference/next.config.js/redirects)
+- request path를 다른 path로 redirect, rewrite 가능 
+  - query string이나 header, cookie 등에 특정한 값이 있을 경우에만 redirect, rewrite 한다는 등의 기능 가능
+- 당연한 이야기지만 SSG에서는 불가능
+
 ### Getting Started
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
