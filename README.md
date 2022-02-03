@@ -20,6 +20,8 @@
     - 페이지에 추가 데이터 삽입
     - 글로벌 CSS 추가
 
+**유용한 컴포넌트**
+- `next/head` head tag를 주입하는데 사용, meta tag들 관리하는데 사용 가능
 
 ### Getting Started
 
