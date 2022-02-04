@@ -1,9 +1,14 @@
 ## Study.Nextjs
 
 **Route**
-- pages 밑의 파일 이름이 route가 됨
+- pages 밑의 파일(또는 디렉토리) 이름이 route가 됨
 - 없는 페이지는 404로 뜸 -> 커스텀 가능
 - 각 페이지는 react를 import 하지 않아도 사용 가능
+
+**Dynamic Routes**
+- 디렉토리 내에서 index 파일을 만들면 `/`, 그 외 파일은 `/파일명`
+- 동적 라우팅의 경우 대괄호를 이용하여 생성
+  - `[name].tsx`
 
 **Static Pre Rendering**
 - nextjs에서 두 종류로 활용 가능
