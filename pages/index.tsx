@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'; // 
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
@@ -6,14 +6,13 @@ import NavBar from '../components/NavBar';
 import Seo from '../components/Seo';
 import styles from '../styles/Home.module.css'
 
-function Home() {
-  const [movies, setMovies] = useState<any[]>([]);
-  useEffect(() => {
-    (async () => {
-      const { results } = await fetch('/api/movies').then(res => res.json());
-      setMovies(results);
-    })();
-  }, []);
+type Props = {
+  movies: any[],
+};
+
+function Home({
+  movies,
+}: Props) {
   return (
     <div>
       <Seo title="Home" />
@@ -48,4 +47,15 @@ function Home() {
   );
 }
 
-export default Home
+// 서버에서만 돌아감
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // ssr에서는 절대경로 api만 가능
+  const { results } = await fetch('http://localhost:3000/api/movies').then(res => res.json());
+  return {
+    props: {
+      movies: results,
+    },
+  };
+};
+
+export default Home;

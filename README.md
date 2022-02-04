@@ -11,6 +11,15 @@
   - Server-side Rendering -> request마다 랜더링
 - (잠깐 상식?) Hydrate: 미리 랜더된 HTML 코드와 React인 JS코드를 서로 매칭 시키는 과정
 
+**Data Fetching**
+- 아래와 같은 함수들을 사용하는 것만으로 SSR, SSG를 쉽게 구현 가능
+- SSR
+  - `getServerSideProps`를 export
+- SSG
+  - `getStaticProps`를 export
+- CSR
+  - 그냥 api call
+
 **App Component, App Page**
 - `_app`
   - 페이지를 초기화하는 컴포넌트, 모든 페이지에 공통으로 적용할 속성을 관리하는 용도
