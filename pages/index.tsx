@@ -1,6 +1,8 @@
 import type { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'; // 
 import Image from 'next/image'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Seo from '../components/Seo';
@@ -13,11 +15,22 @@ type Props = {
 function Home({
   movies,
 }: Props) {
+  const router = useRouter();
+  const onMovieClick = (id: string, title: string) => {
+    // 두번째 인자로 유저에게 보여질 url을 마스킹할 수 있음 https://nextjs.org/docs/api-reference/next/router#routerpush
+    router.push({
+      pathname: `/movies/${id}`,
+      query: {
+        title,
+      },
+    }, `/movies/${id}`);
+  };
+
   return (
     <div>
       <Seo title="Home" />
       {movies.map(movie => (
-        <div className="movie" key={movie.id}>
+        <div className="movie" key={movie.id} onClick={() => onMovieClick(movie.id, movie.original_title)}>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster" />
           <h4>{movie.original_title}</h4>
         </div>

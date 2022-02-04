@@ -2,8 +2,11 @@ import { useRouter } from "next/router";
 
 function MovieDetail() {
   const router = useRouter();
+  const { query: { id, title } } = router;
   return (
-    'adsf'
+    <div>
+      <h4>{title ?? 'Loading...'}</h4>
+    </div>
   );
 }
 
