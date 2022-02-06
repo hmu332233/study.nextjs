@@ -8,7 +8,8 @@
 **Dynamic Routes**
 - 디렉토리 내에서 index 파일을 만들면 `/`, 그 외 파일은 `/파일명`
 - 동적 라우팅의 경우 대괄호를 이용하여 생성
-  - `[name].tsx`
+  - `[name].tsx` -> `router.query.name`으로 접근 가능
+  - `[...name].tsx` -> Catch-All url, router.query.name이 string 대신 array가 들어있고 무한대로 확장 가능
 
 **Static Pre Rendering**
 - nextjs에서 두 종류로 활용 가능

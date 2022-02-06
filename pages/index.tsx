@@ -18,12 +18,16 @@ function Home({
   const router = useRouter();
   const onMovieClick = (id: string, title: string) => {
     // 두번째 인자로 유저에게 보여질 url을 마스킹할 수 있음 https://nextjs.org/docs/api-reference/next/router#routerpush
+    // router.push({
+    //   pathname: `/movies/${id}`,
+    //   query: {
+    //     title,
+    //   },
+    // }, `/movies/${id}`);
+
     router.push({
-      pathname: `/movies/${id}`,
-      query: {
-        title,
-      },
-    }, `/movies/${id}`);
+      pathname: `/movies/${id}/${title}`,
+    })
   };
 
   return (
