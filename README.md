@@ -2,7 +2,7 @@
 
 **Route**
 - pages 밑의 파일(또는 디렉토리) 이름이 route가 됨
-- 없는 페이지는 404로 뜸 -> 커스텀 가능
+- 없는 페이지는 404로 뜸 -> `pages/404.tsx`로 커스텀 가능
 - 각 페이지는 react를 import 하지 않아도 사용 가능
 
 **Dynamic Routes**
