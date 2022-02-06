@@ -70,7 +70,7 @@ function Home({
 // 서버에서만 돌아감
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // ssr에서는 절대경로 api만 가능
-  const { results } = await fetch('http://localhost:3000/api/movies').then(res => res.json());
+  const { results } = await fetch('https://study-nextjs-lovat.vercel.app/api/movies').then(res => res.json());
   return {
     props: {
       movies: results,
